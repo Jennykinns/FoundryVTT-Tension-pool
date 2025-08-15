@@ -16,7 +16,7 @@ Tension Pool is a Foundry Implementation and Evolution of the Angry GM's idea of
 
 ## Future of Tension Pool
 
-Tension Pool has been updated to V10.
+Tension Pool has been updated to V13. Note: I am not super competent with foundry modules, and have only done the bare essentials to update it for my own usage. As soon as the original module gets an update, this fork will likely become inactive.
 
 Going forwards Tension Pool should be treated as unsupported.
 
