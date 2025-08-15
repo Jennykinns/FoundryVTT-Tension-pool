@@ -130,8 +130,11 @@ Hooks.on("ready", () => {
         }
     }
 
-    console.log('tension-pool | Ready');
+    $("#ui-right-column-1").append(`<div class="flexcol faded-ui" id="TensionDice-Poolsect-chat" style="order: 100;"><p id="TensionDice-Pool-chat" style="display: flex;align-items: center;position: relative;flex-flow: row wrap" onclick="game.tension.adddie()"><a style="margin-right: 10px;">Tension Pool:</a></p>`);
+    let diceinpool = game.settings.get("tension-pool",'diceinpool');
+    updatedisplay(diceinpool);
 
+    console.log('tension-pool | Ready');
 
 });
 
@@ -145,13 +148,13 @@ async function updatedisplay(diceinpool){
 
     let chatpool = document.getElementById("TensionDice-Pool-chat");
     let popoutchatpool = document.getElementById("TensionDice-Pool-chatpopout");
-    let pool = 'Tension Pool:';
+    let pool = '<a style="margin-right: 10px">Tension Pool:</a>';
     let i;
     let iz=0;
 
 
     for (i = 0; i < diceinpool; i++) {
-        pool+='<img src="modules/tension-pool/images/Danger_black.webp" alt="!" width="25" height="25">'
+        pool+='<img src="modules/tension-pool/images/Danger_black.webp" alt="!" width="25" height="25" style="margin: 0px 2px 0px 2px">'
         iz+=1;
         if ((iz===9) && !(iz===diceinpool)){
             pool+='<br>'
@@ -159,7 +162,7 @@ async function updatedisplay(diceinpool){
     }
 
     for (i = 0; i < game.settings.get("tension-pool",'maxdiceinpool')-diceinpool; i++) {
-        pool+='<img src="modules/tension-pool/images/EmptyDie.webp" alt="X" width="25" height="25">'
+        pool+='<img src="modules/tension-pool/images/EmptyDie.webp" alt="X" width="25" height="25" style="margin: 0px 2px 0px 2px">'
         iz+=1;
     }
 
@@ -172,7 +175,7 @@ async function updatedisplay(diceinpool){
     }
 }
 
-Hooks.on("renderChatLog", (app, html) => {
+Hooks.on("activateChatLog", (app, html) => {
     let chatfooterhtml = `<footer class="directory-footer" id="TensionDice-Poolsect-chat" style="flex:none">
 <p id="TensionDice-Pool-chat" style="display: flex;align-items: center;justify-content: center;position: relative;flex-flow: row wrap" onclick="game.tension.adddie()">Tension Pool:</p>
 </footer>`;
