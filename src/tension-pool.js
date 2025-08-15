@@ -130,7 +130,7 @@ Hooks.on("ready", () => {
         }
     }
 
-    $("#ui-right-column-1").append(`<div class="flexcol faded-ui" id="TensionDice-Poolsect-chat" style="order: 100;"><p id="TensionDice-Pool-chat" style="display: flex;align-items: center;position: relative;flex-flow: row wrap" onclick="game.tension.adddie()"><a style="margin-right: 10px;">Tension Pool:</a></p>`);
+    $("#ui-left-column-1").append(`<aside id="players" class="flexcol faded-ui"><div id="players-active" class="flexcol" style="width: 275px;"><div class="flexcol" id="TensionDice-Poolsect-chat" style="order: 100;"><p id="TensionDice-Pool-chat" style="display: flex;align-items: center;position: relative;flex-flow: nowrap;" onclick="game.tension.adddie()"><a style="margin-right: 10px;flex-flow: nowrap;display: flex;">Tension Pool:</a></p></div></div></aside>`);
     let diceinpool = game.settings.get("tension-pool",'diceinpool');
     updatedisplay(diceinpool);
 
